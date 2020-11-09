@@ -3,7 +3,7 @@
     <div class="banner">
       <div class="left">
         <div class="content">
-          <h1>Decorate Your Face   </h1>
+          <h1>Decorate Your Face</h1>
           <p>and give your life a style <br> with our product</p>
           <router-link to="/about" class="btn">DISCOVER MORE</router-link>
           <div class="social">
@@ -20,9 +20,8 @@
     <div class="products-div">
       <h1>same products</h1>
       <div class="products">
-        <router-link v-for="products in product" :key="product.id" to="/product">
-        {{product.name}}
-          <product-component image="/productsImages/lunette1.png" v-bind:name="'product.name'" v-bind:description="'Description du produit'" v-bind:price="'2000dh'"></product-component>
+        <router-link v-for="product in products" :key="product.id" to="/product">
+              <product-component image="/productsImages/lunette1.png" v-bind:name="product.name" v-bind:description="product.description" v-bind:price="product.price"></product-component>
         </router-link>
       </div>
     </div>
@@ -69,16 +68,24 @@
 
 <script>
   export default {
-    data(){
-      return {
-        products: {}
-      }
-    },
-    created() {
-      axios.get('http://127.0.0.1:8000/productList')
-           .response(response => this.products = response.data)
-           .catch(error => console.log(error));
-    }
+
+     data() {
+            return {
+                 products: {}
+            }
+        },
+        methods: {
+            getProduct(){
+                axios.get('/productList')
+                     .then((response)=>{
+                       this.products = response.data
+                     })
+            }
+        },
+        created() {
+            this.getProduct()
+        }
+
   }
 </script>
 

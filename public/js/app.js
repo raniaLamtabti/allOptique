@@ -2188,21 +2188,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       products: {}
     };
   },
-  created: function created() {
-    var _this = this;
+  methods: {
+    getProduct: function getProduct() {
+      var _this = this;
 
-    axios.get('http://127.0.0.1:8000/productList').response(function (response) {
-      return _this.products = response.data;
-    })["catch"](function (error) {
-      return console.log(error);
-    });
+      axios.get('/productList').then(function (response) {
+        _this.products = response.data;
+      });
+    }
+  },
+  created: function created() {
+    this.getProduct();
   }
 });
 
@@ -54999,7 +55001,7 @@ var render = function() {
           "div",
           { staticClass: "content" },
           [
-            _c("h1", [_vm._v("Decorate Your Face   ")]),
+            _c("h1", [_vm._v("Decorate Your Face")]),
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
@@ -55042,18 +55044,17 @@ var render = function() {
       _c(
         "div",
         { staticClass: "products" },
-        _vm._l(_vm.product, function(products) {
+        _vm._l(_vm.products, function(product) {
           return _c(
             "router-link",
-            { key: _vm.product.id, attrs: { to: "/product" } },
+            { key: product.id, attrs: { to: "/product" } },
             [
-              _vm._v("\n      " + _vm._s(_vm.product.name) + "\n        "),
               _c("product-component", {
                 attrs: {
                   image: "/productsImages/lunette1.png",
-                  name: "product.name",
-                  description: "Description du produit",
-                  price: "2000dh"
+                  name: product.name,
+                  description: product.description,
+                  price: product.price
                 }
               })
             ],
@@ -55335,17 +55336,23 @@ var render = function() {
             attrs: { "aria-labelledby": "dropdownLang" }
           },
           [
-            _c("router-link", { staticClass: "dropdown-item link" }, [
-              _vm._v("EN")
-            ]),
+            _c(
+              "router-link",
+              { staticClass: "dropdown-item link", attrs: { to: "#" } },
+              [_vm._v("EN")]
+            ),
             _vm._v(" "),
-            _c("router-link", { staticClass: "dropdown-item link" }, [
-              _vm._v("FR")
-            ]),
+            _c(
+              "router-link",
+              { staticClass: "dropdown-item link", attrs: { to: "#" } },
+              [_vm._v("FR")]
+            ),
             _vm._v(" "),
-            _c("router-link", { staticClass: "dropdown-item link" }, [
-              _vm._v("AR")
-            ])
+            _c(
+              "router-link",
+              { staticClass: "dropdown-item link", attrs: { to: "#" } },
+              [_vm._v("AR")]
+            )
           ],
           1
         )
