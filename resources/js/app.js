@@ -54,7 +54,7 @@ const routes = [
         component: contact
     },
     {
-        path: '/product',
+        path: '/product/{id}',
         component: product
     }
 ];

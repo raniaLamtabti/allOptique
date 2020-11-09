@@ -74,7 +74,7 @@
             <div class="content">
                 <img :src="'/images/women.png'" alt="" />
                 <div class="products">
-                    <router-link class="link" v-for="women in womens" :to="'product/'+ women.id ">
+                    <router-link class="link" v-for="women in womens" :key="women.id"  :to="'product/'+ women.id ">
                         <product-component
                             :image="'/' + women.image"
                             v-bind:name="women.name"

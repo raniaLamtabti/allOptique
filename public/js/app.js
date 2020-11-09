@@ -55220,7 +55220,11 @@ var render = function() {
           _vm._l(_vm.womens, function(women) {
             return _c(
               "router-link",
-              { staticClass: "link", attrs: { to: "product/" + women.id } },
+              {
+                key: women.id,
+                staticClass: "link",
+                attrs: { to: "product/" + women.id }
+              },
               [
                 _c("product-component", {
                   attrs: {
@@ -55336,6 +55340,7 @@ var render = function() {
               return _c(
                 "router-link",
                 {
+                  key: categorie.id,
                   staticClass: "dropdown-item link",
                   attrs: { to: "product/" + categorie.id }
                 },
@@ -55422,8 +55427,83 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "product" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "productInfo row" }, [
+      _c("div", { staticClass: "images col-md-12 col-lg-8 col-sm-12 row" }, [
+        _c("div", { staticClass: "subImages col-md-2 col-lg-2 col-sm-12" }, [
+          _c("img", {
+            attrs: { src: "/productsImages/lunette2.png", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            attrs: { src: "/productsImages/lunette3.png", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("img", { attrs: { src: "/productsImages/lunette4.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "principalImage col-md-10 col-lg-10 col-sm-12" },
+          [
+            _c("img", {
+              attrs: { src: "/productsImages/lunette1.png", alt: "" }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "other" }, [
+      _c("h1", [_vm._v("other product you may like")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "images" }, [
+        _c("img", { attrs: { src: "/images/store1.png", alt: "" } }),
+        _vm._v(" "),
+        _c("img", { attrs: { src: "/images/store2.png", alt: "" } }),
+        _vm._v(" "),
+        _c("img", { attrs: { src: "/images/store3.png", alt: "" } }),
+        _vm._v(" "),
+        _c("img", { attrs: { src: "/images/store4.png", alt: "" } })
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "banner" }, [
+      _c("h1", [_vm._v("NAME OF PRODUCT")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content col-md-12 col-lg-4 col-sm-12" }, [
+      _c("h1", [_vm._v("NAME OF PRODUCT")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          " is simply dummytext of the printing\n          and typesetting industry.Lorem \n          Ipsu has been the industry's"
+        )
+      ]),
+      _vm._v(" "),
+      _c("span", [_vm._v("122DH")])
+    ])
+  }
+]
+render._withStripped = true
 
 
 
@@ -73051,7 +73131,7 @@ var routes = [{
   path: '/contact',
   component: _components_Contact_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
-  path: '/product',
+  path: '/product/{id}',
   component: _components_Product_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

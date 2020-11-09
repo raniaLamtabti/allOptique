@@ -10,7 +10,7 @@
                     CATEGORIE
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownCat">
-                    <router-link class="dropdown-item link" v-for="categorie in categories" :to="'product/'+ categorie.id ">{{categorie.name}}</router-link>
+                    <router-link class="dropdown-item link" v-for="categorie in categories" :key="categorie.id"  :to="'product/'+ categorie.id ">{{categorie.name}}</router-link>
                 </div>
                 <router-link class="link" to="/about">ABOUT</router-link>
                 <router-link class="link" to="/contact">CONTACT US</router-link>

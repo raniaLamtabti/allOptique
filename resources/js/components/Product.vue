@@ -3,7 +3,7 @@
     <div class="banner">
       <h1>NAME OF PRODUCT</h1>
     </div>
-    {{product->id}}
+    <!-- {{product->id}} -->
     <div class="productInfo row">
       <div class="images col-md-12 col-lg-8 col-sm-12 row">
         <div class="subImages col-md-2 col-lg-2 col-sm-12">
