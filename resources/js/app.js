@@ -55,6 +55,10 @@ const routes = [
         path: '/product',
         component: product
     }
+    ,  {
+        path: '/product/:id',
+        component: contact
+    }
 ];
 
 const router = new VueRouter({routes});

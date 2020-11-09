@@ -55047,11 +55047,11 @@ var render = function() {
         _vm._l(_vm.products, function(product) {
           return _c(
             "router-link",
-            { key: product.id, attrs: { to: "/product" } },
+            { key: product.id, attrs: { to: "product/" + product.id } },
             [
               _c("product-component", {
                 attrs: {
-                  image: "/productsImages/lunette1.png",
+                  image: product.image,
                   name: product.name,
                   description: product.description,
                   price: product.price
@@ -73086,6 +73086,9 @@ var routes = [{
 }, {
   path: '/product',
   component: _components_Product_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+}, {
+  path: '/product/:id',
+  component: _components_Contact_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes

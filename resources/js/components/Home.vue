@@ -20,8 +20,8 @@
     <div class="products-div">
       <h1>same products</h1>
       <div class="products">
-        <router-link v-for="product in products" :key="product.id" to="/product">
-              <product-component image="/productsImages/lunette1.png" v-bind:name="product.name" v-bind:description="product.description" v-bind:price="product.price"></product-component>
+        <router-link v-for="product in products" :key="product.id" :to="'product/'+ product.id ">
+              <product-component :image="product.image" v-bind:name="product.name" v-bind:description="product.description" v-bind:price="product.price"></product-component>
         </router-link>
       </div>
     </div>
