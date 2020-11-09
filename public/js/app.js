@@ -54999,7 +54999,7 @@ var render = function() {
           "div",
           { staticClass: "content" },
           [
-            _c("h1", [_vm._v("Decorate Your Face ")]),
+            _c("h1", [_vm._v("Decorate Your Face   ")]),
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),

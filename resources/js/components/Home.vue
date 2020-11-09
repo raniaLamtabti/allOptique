@@ -3,7 +3,7 @@
     <div class="banner">
       <div class="left">
         <div class="content">
-          <h1>Decorate Your Face </h1>
+          <h1>Decorate Your Face   </h1>
           <p>and give your life a style <br> with our product</p>
           <router-link to="/about" class="btn">DISCOVER MORE</router-link>
           <div class="social">
