@@ -18,6 +18,12 @@ class MarqueController extends Controller
         return view('marques', ['marques' => $marques]);
     }
 
+    public function List()
+    {
+        $marqueList = Marque::all();
+        return response()->json($marqueList);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

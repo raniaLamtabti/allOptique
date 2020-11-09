@@ -18,6 +18,11 @@ class CategorieController extends Controller
         return view('categories', ['categories' => $categories]);
     }
 
+    public function list()
+    {
+        $categories = Categorie::all();
+        return response()->json($categories);
+    }
     /**
      * Show the form for creating a new resource.
      *

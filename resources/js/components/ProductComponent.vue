@@ -28,7 +28,8 @@
     border-radius: 12px;
     min-width: 200px;
     font-family: $allerta;
-    padding-bottom: 20px;
+    padding: 20px;
+    height: 100%;
     h1{
       font-style: normal;
       font-weight: normal;

@@ -20,8 +20,21 @@ class ProductController extends Controller
 
     public function list()
     {
-        $products = Product::all();
+        $products = Product::take(8)->get();
         return response()->json($products);
+    }
+
+    
+    public function kid()
+    {
+        $productKid = Product::where('categories_id', 3)->take(1)->get();
+        return response()->json($productKid);
+    }
+
+    public function womenLimit()
+    {
+        $productWomen = Product::where('categories_id', 3)->take(1)->get();
+        return response()->json($productWomen);
     }
 
     /**
@@ -82,7 +95,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+
+        return response()->json($product);
     }
 
     /**

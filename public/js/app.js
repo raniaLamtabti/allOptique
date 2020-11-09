@@ -2189,20 +2189,76 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      products: {}
+      products: {},
+      kids: {},
+      womens: {},
+      marques: {}
     };
   },
-  created: function created() {
-    var _this = this;
+  methods: {
+    getProduct: function getProduct() {
+      var _this = this;
 
-    axios.get('http://127.0.0.1:8000/productList').response(function (response) {
-      return _this.products = response.data;
-    })["catch"](function (error) {
-      return console.log(error);
-    });
+      axios.get("/productList").then(function (response) {
+        _this.products = response.data;
+      });
+    },
+    getProductKid: function getProductKid() {
+      var _this2 = this;
+
+      axios.get("/productKid").then(function (response) {
+        _this2.kids = response.data;
+      });
+    },
+    getProductWomen: function getProductWomen() {
+      var _this3 = this;
+
+      axios.get("/productWomen").then(function (response) {
+        _this3.womens = response.data;
+      });
+    },
+    getMarque: function getMarque() {
+      var _this4 = this;
+
+      axios.get("/marqueList").then(function (response) {
+        _this4.marques = response.data;
+      });
+    }
+  },
+  created: function created() {
+    this.getProduct(), this.getProductWomen(), this.getProductKid(), this.getMarque();
   }
 });
 
@@ -2251,13 +2307,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     makeRed: function makeRed() {
       var nav = this.$refs.nav.classList;
       nav.contains("show") ? nav.remove("show") : nav.add("show");
+    },
+    getCategorie: function getCategorie() {
+      var _this = this;
+
+      axios.get("/categorieList").then(function (response) {
+        _this.categories = response.data;
+      });
     }
+  },
+  data: function data() {
+    return {
+      categories: {}
+    };
+  },
+  created: function created() {
+    this.getCategorie();
   }
 });
 
@@ -2308,7 +2378,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      product: {}
+    };
+  },
+  methods: {
+    getProduct: function getProduct() {
+      var _this = this;
+
+      axios.get('product', this.$route.params.id).then(function (response) {
+        _this.product = response.data;
+      });
+    }
+  },
+  created: function created() {
+    this.getProduct();
+  }
+});
 
 /***/ }),
 
@@ -6853,7 +6942,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".home .banner[data-v-f2b6376c] {\n  display: flex;\n  background: linear-gradient(180deg, rgba(209, 245, 239, 0.39) 66.96%, rgba(209, 245, 239, 0) 100%);\n  padding: 5% 7%;\n  font-family: \"Heebo\", Helvetica;\n}\n.home .banner .left[data-v-f2b6376c] {\n  width: 50%;\n}\n.home .banner .left h1[data-v-f2b6376c] {\n  font-size: 48px;\n  font-weight: 700;\n  color: #424242;\n}\n.home .banner .left p[data-v-f2b6376c] {\n  font-size: 24px;\n  font-weight: 700;\n  color: #4a4a4a;\n}\n.home .banner .left .btn[data-v-f2b6376c] {\n  padding: 20px;\n  background-color: #3848f7;\n  border-radius: 20px;\n  color: #fff;\n  font-size: 30px;\n}\n.home .banner .left .social[data-v-f2b6376c] {\n  margin-top: 50px;\n}\n.home .banner .left .social a[data-v-f2b6376c] {\n  margin-right: 20px;\n}\n.home .banner .right[data-v-f2b6376c] {\n  width: 50%;\n  text-align: center;\n  background: url(\"/images/homeBannerPath.png\") no-repeat;\n  background-position: right 50% top 0;\n  background-size: 90%;\n}\n.home .products-div[data-v-f2b6376c] {\n  text-align: center;\n  padding: 0 7%;\n}\n.home .products-div h1[data-v-f2b6376c] {\n  color: #f93c3c;\n  font-family: \"Heebo\", Helvetica;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 36px;\n  margin-bottom: 20px;\n}\n.home .products-div .products[data-v-f2b6376c] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-column-gap: 50px;\n  grid-row-gap: 50px;\n}\n.home .kids[data-v-f2b6376c] {\n  text-align: center;\n  padding: 0 7%;\n  margin-top: 50px;\n  margin-bottom: 50px;\n}\n.home .kids h1[data-v-f2b6376c] {\n  color: #f93c3c;\n  font-family: \"Heebo\", Helvetica;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 36px;\n  margin-bottom: 20px;\n}\n.home .kids .content[data-v-f2b6376c] {\n  display: grid;\n  grid-template-areas: \"offer offer offer prod\";\n  grid-column-gap: 50px;\n}\n.home .kids .content .offer[data-v-f2b6376c] {\n  grid-area: offer;\n  background-color: #ff9999;\n  display: grid;\n  border-radius: 12px;\n  grid-template-areas: \"img cont cont\";\n}\n.home .kids .content .offer img[data-v-f2b6376c] {\n  grid-area: img;\n  height: 100%;\n  border-radius: 12px;\n}\n.home .kids .content .offer .offer-content[data-v-f2b6376c] {\n  grid-area: cont;\n  text-align: left;\n  font-family: \"Allerta\", Helvetica;\n  padding: 7% 2% 7% 2%;\n}\n.home .kids .content .offer .offer-content p[data-v-f2b6376c] {\n  font-style: normal;\n  font-weight: normal;\n  font-size: 24px;\n  line-height: 31px;\n  color: #FFFFFF;\n}\n.home .kids .content .offer .offer-content .btn[data-v-f2b6376c] {\n  box-shadow: 0px 4px 4px rgba(255, 6, 6, 0.25);\n  border-radius: 19px;\n  background-color: #ee5c5c;\n  color: #fff;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 24px;\n  line-height: 31px;\n  padding: 20px 50px;\n  margin-top: 50px;\n}\n.home .kids .content .prod[data-v-f2b6376c] {\n  grid-area: prod;\n}\n@media screen and (max-width: 768px) {\n.home .kids .content .offer[data-v-f2b6376c] {\n    grid-template-areas: \"img\" \"cont\";\n}\n.home .kids .content .offer img[data-v-f2b6376c] {\n    margin: auto;\n    height: auto;\n}\n.home .kids .content .offer .offer-content[data-v-f2b6376c] {\n    text-align: center;\n}\n}\n@media screen and (max-width: 1000px) {\n.home .kids .content[data-v-f2b6376c] {\n    grid-template-areas: \"offer\" \" prod\";\n    grid-row-gap: 50px;\n}\n.home .kids .content .prod[data-v-f2b6376c] {\n    width: 300px;\n    margin: auto;\n}\n}\n.home .women[data-v-f2b6376c] {\n  text-align: center;\n  font-family: \"Heebo\", Helvetica;\n  margin-bottom: 50px;\n}\n.home .women h1[data-v-f2b6376c] {\n  color: #f93c3c;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 36px;\n  margin-bottom: 20px;\n}\n.home .women .content[data-v-f2b6376c] {\n  padding: 3% 7%;\n  background-color: #d1f5ef;\n  display: grid;\n  grid-template-areas: \"img prods\";\n  grid-column-gap: 50px;\n}\n.home .women .content img[data-v-f2b6376c] {\n  grid-area: img;\n  height: 100%;\n  width: 100%;\n}\n.home .women .content .products[data-v-f2b6376c] {\n  grid-area: prods;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));\n  grid-column-gap: 50px;\n  grid-row-gap: 50px;\n}\n.home .marks-div[data-v-f2b6376c] {\n  text-align: center;\n  font-family: \"Heebo\", Helvetica;\n}\n.home .marks-div h1[data-v-f2b6376c] {\n  color: #f93c3c;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 36px;\n  margin-bottom: 20px;\n}\n.home .marks-div .marks[data-v-f2b6376c] {\n  padding: 3% 7%;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));\n  grid-column-gap: 50px;\n  grid-row-gap: 50px;\n}\n@media screen and (max-width: 1083px) {\n.home .banner .right[data-v-f2b6376c] {\n    position: relative;\n}\n.home .banner .right img[data-v-f2b6376c] {\n    position: absolute;\n    width: 400px;\n    bottom: 0;\n    right: 0;\n}\n}\n@media screen and (max-width: 860px) {\n.home .banner .right[data-v-f2b6376c] {\n    position: relative;\n    background-position: right 50% bottom 0;\n}\n}\n@media screen and (max-width: 768px) {\n.home .banner .right[data-v-f2b6376c] {\n    display: none;\n}\n.home .banner .left[data-v-f2b6376c] {\n    width: 100%;\n    text-align: center;\n}\n.home .banner .left .social a[data-v-f2b6376c] {\n    margin-right: 0px;\n    padding: 10px;\n}\n}", ""]);
+exports.push([module.i, ".home .banner[data-v-f2b6376c] {\n  display: flex;\n  background: linear-gradient(180deg, rgba(209, 245, 239, 0.39) 66.96%, rgba(209, 245, 239, 0) 100%);\n  padding: 5% 7%;\n  font-family: \"Heebo\", Helvetica;\n}\n.home .banner .left[data-v-f2b6376c] {\n  width: 50%;\n}\n.home .banner .left h1[data-v-f2b6376c] {\n  font-size: 48px;\n  font-weight: 700;\n  color: #424242;\n}\n.home .banner .left p[data-v-f2b6376c] {\n  font-size: 24px;\n  font-weight: 700;\n  color: #4a4a4a;\n}\n.home .banner .left .btn[data-v-f2b6376c] {\n  padding: 20px;\n  background-color: #3848f7;\n  border-radius: 20px;\n  color: #fff;\n  font-size: 30px;\n}\n.home .banner .left .social[data-v-f2b6376c] {\n  margin-top: 50px;\n}\n.home .banner .left .social a[data-v-f2b6376c] {\n  margin-right: 20px;\n}\n.home .banner .right[data-v-f2b6376c] {\n  width: 50%;\n  text-align: center;\n  background: url(\"/images/homeBannerPath.png\") no-repeat;\n  background-position: right 50% top 0;\n  background-size: 90%;\n}\n.home .products-div[data-v-f2b6376c] {\n  text-align: center;\n  padding: 0 7%;\n}\n.home .products-div h1[data-v-f2b6376c] {\n  color: #f93c3c;\n  font-family: \"Heebo\", Helvetica;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 36px;\n  margin-bottom: 20px;\n}\n.home .products-div .products[data-v-f2b6376c] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-column-gap: 50px;\n  grid-row-gap: 50px;\n}\n.home .kids[data-v-f2b6376c] {\n  text-align: center;\n  padding: 0 7%;\n  margin-top: 50px;\n  margin-bottom: 50px;\n}\n.home .kids h1[data-v-f2b6376c] {\n  color: #f93c3c;\n  font-family: \"Heebo\", Helvetica;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 36px;\n  margin-bottom: 20px;\n}\n.home .kids .content[data-v-f2b6376c] {\n  display: grid;\n  grid-template-areas: \"offer offer offer prod\";\n  grid-column-gap: 50px;\n}\n.home .kids .content .offer[data-v-f2b6376c] {\n  grid-area: offer;\n  background-color: #ff9999;\n  display: grid;\n  border-radius: 12px;\n  grid-template-areas: \"img cont cont\";\n}\n.home .kids .content .offer img[data-v-f2b6376c] {\n  grid-area: img;\n  height: 100%;\n  border-radius: 12px;\n}\n.home .kids .content .offer .offer-content[data-v-f2b6376c] {\n  grid-area: cont;\n  text-align: left;\n  font-family: \"Allerta\", Helvetica;\n  padding: 7% 2% 7% 2%;\n}\n.home .kids .content .offer .offer-content p[data-v-f2b6376c] {\n  font-style: normal;\n  font-weight: normal;\n  font-size: 24px;\n  line-height: 31px;\n  color: #ffffff;\n}\n.home .kids .content .offer .offer-content .btn[data-v-f2b6376c] {\n  box-shadow: 0px 4px 4px rgba(255, 6, 6, 0.25);\n  border-radius: 19px;\n  background-color: #ee5c5c;\n  color: #fff;\n  font-style: normal;\n  font-weight: normal;\n  font-size: 24px;\n  line-height: 31px;\n  padding: 20px 50px;\n  margin-top: 50px;\n}\n.home .kids .content .prod[data-v-f2b6376c] {\n  grid-area: prod;\n}\n@media screen and (max-width: 768px) {\n.home .kids .content .offer[data-v-f2b6376c] {\n    grid-template-areas: \"img\" \"cont\";\n}\n.home .kids .content .offer img[data-v-f2b6376c] {\n    margin: auto;\n    height: auto;\n}\n.home .kids .content .offer .offer-content[data-v-f2b6376c] {\n    text-align: center;\n}\n}\n@media screen and (max-width: 1000px) {\n.home .kids .content[data-v-f2b6376c] {\n    grid-template-areas: \"offer\" \" prod\";\n    grid-row-gap: 50px;\n}\n.home .kids .content .prod[data-v-f2b6376c] {\n    width: 300px;\n    margin: auto;\n}\n}\n.home .women[data-v-f2b6376c] {\n  text-align: center;\n  font-family: \"Heebo\", Helvetica;\n  margin-bottom: 50px;\n}\n.home .women h1[data-v-f2b6376c] {\n  color: #f93c3c;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 36px;\n  margin-bottom: 20px;\n}\n.home .women .content[data-v-f2b6376c] {\n  padding: 3% 7%;\n  background-color: #d1f5ef;\n  display: grid;\n  grid-template-areas: \"img prods\";\n  grid-column-gap: 50px;\n}\n.home .women .content img[data-v-f2b6376c] {\n  grid-area: img;\n  height: 100%;\n  width: 100%;\n}\n.home .women .content .products[data-v-f2b6376c] {\n  grid-area: prods;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));\n  grid-column-gap: 50px;\n  grid-row-gap: 50px;\n}\n.home .marks-div[data-v-f2b6376c] {\n  text-align: center;\n  font-family: \"Heebo\", Helvetica;\n}\n.home .marks-div h1[data-v-f2b6376c] {\n  color: #f93c3c;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 36px;\n  margin-bottom: 20px;\n}\n.home .marks-div .marks[data-v-f2b6376c] {\n  padding: 3% 7%;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));\n  grid-column-gap: 50px;\n  grid-row-gap: 50px;\n}\n.home .link[data-v-f2b6376c] {\n  text-decoration: none;\n}\n@media screen and (max-width: 1083px) {\n.home .banner .right[data-v-f2b6376c] {\n    position: relative;\n}\n.home .banner .right img[data-v-f2b6376c] {\n    position: absolute;\n    width: 400px;\n    bottom: 0;\n    right: 0;\n}\n}\n@media screen and (max-width: 860px) {\n.home .banner .right[data-v-f2b6376c] {\n    position: relative;\n    background-position: right 50% bottom 0;\n}\n}\n@media screen and (max-width: 768px) {\n.home .banner .right[data-v-f2b6376c] {\n    display: none;\n}\n.home .banner .left[data-v-f2b6376c] {\n    width: 100%;\n    text-align: center;\n}\n.home .banner .left .social a[data-v-f2b6376c] {\n    margin-right: 0px;\n    padding: 10px;\n}\n}", ""]);
 
 // exports
 
@@ -6910,7 +6999,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".product[data-v-9e91ef8e] {\n  background: #FFFFFF;\n  box-shadow: 0px 0px 30px rgba(193, 192, 192, 0.25);\n  border-radius: 12px;\n  min-width: 200px;\n  font-family: \"Allerta\", Helvetica;\n  padding-bottom: 20px;\n}\n.product h1[data-v-9e91ef8e] {\n  font-style: normal;\n  font-weight: normal;\n  font-size: 24px;\n  line-height: 23px;\n  color: #000000;\n}\n.product p[data-v-9e91ef8e] {\n  font-style: normal;\n  font-weight: 300;\n  font-size: 16px;\n  line-height: 16px;\n  color: #000000;\n}\n.product span[data-v-9e91ef8e] {\n  color: #f93c3c;\n}", ""]);
+exports.push([module.i, ".product[data-v-9e91ef8e] {\n  background: #FFFFFF;\n  box-shadow: 0px 0px 30px rgba(193, 192, 192, 0.25);\n  border-radius: 12px;\n  min-width: 200px;\n  font-family: \"Allerta\", Helvetica;\n  padding: 20px;\n  height: 100%;\n}\n.product h1[data-v-9e91ef8e] {\n  font-style: normal;\n  font-weight: normal;\n  font-size: 24px;\n  line-height: 23px;\n  color: #000000;\n}\n.product p[data-v-9e91ef8e] {\n  font-style: normal;\n  font-weight: 300;\n  font-size: 16px;\n  line-height: 16px;\n  color: #000000;\n}\n.product span[data-v-9e91ef8e] {\n  color: #f93c3c;\n}", ""]);
 
 // exports
 
@@ -54999,7 +55088,7 @@ var render = function() {
           "div",
           { staticClass: "content" },
           [
-            _c("h1", [_vm._v("Decorate Your Face   ")]),
+            _c("h1", [_vm._v("Decorate Your Face")]),
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
@@ -55042,18 +55131,21 @@ var render = function() {
       _c(
         "div",
         { staticClass: "products" },
-        _vm._l(_vm.product, function(products) {
+        _vm._l(_vm.products, function(product) {
           return _c(
             "router-link",
-            { key: _vm.product.id, attrs: { to: "/product" } },
+            {
+              key: product.id,
+              staticClass: "link",
+              attrs: { to: "product/" + product.id }
+            },
             [
-              _vm._v("\n      " + _vm._s(_vm.product.name) + "\n        "),
               _c("product-component", {
                 attrs: {
-                  image: "/productsImages/lunette1.png",
-                  name: "product.name",
-                  description: "Description du produit",
-                  price: "2000dh"
+                  image: "/" + product.image,
+                  name: product.name,
+                  description: product.description,
+                  price: product.price
                 }
               })
             ],
@@ -55065,7 +55157,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "kids" }, [
-      _c("h1", [_vm._v("for  your  kids")]),
+      _c("h1", [_vm._v("for your kids")]),
       _vm._v(" "),
       _c(
         "div",
@@ -55080,7 +55172,7 @@ var render = function() {
               [
                 _c("p", [
                   _vm._v(
-                    "Pour tout un tas de raisons Pour tout un raisons tout un tas de raisonsPour tout un ta raisons our tout un tas de raisonsur tout us de raisons"
+                    "\n                        Pour tout un tas de raisons Pour tout un raisons\n                        tout un tas de raisonsPour tout un ta raisons our\n                        tout un tas de raisonsur tout us de raisons\n                    "
                   )
                 ]),
                 _vm._v(" "),
@@ -55094,22 +55186,30 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("product-component", {
-            staticClass: "prod",
-            attrs: {
-              image: "/productsImages/lunette1.png",
-              name: "Titre de produit",
-              description: "Description du produit",
-              price: "2000dh"
-            }
+          _vm._l(_vm.kids, function(kid) {
+            return _c(
+              "router-link",
+              { staticClass: "link", attrs: { to: "product/" + kid.id } },
+              [
+                _c("product-component", {
+                  attrs: {
+                    image: "/" + kid.image,
+                    name: kid.name,
+                    description: kid.description,
+                    price: kid.price
+                  }
+                })
+              ],
+              1
+            )
           })
         ],
-        1
+        2
       )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "women" }, [
-      _c("h1", [_vm._v("for  women")]),
+      _c("h1", [_vm._v("for women")]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
         _c("img", { attrs: { src: "/images/women.png", alt: "" } }),
@@ -55117,43 +55217,23 @@ var render = function() {
         _c(
           "div",
           { staticClass: "products" },
-          [
-            _c("product-component", {
-              attrs: {
-                image: "/productsImages/lunette5.png",
-                name: "Titre de produit",
-                description: "Description du produit",
-                price: "2000dh"
-              }
-            }),
-            _vm._v(" "),
-            _c("product-component", {
-              attrs: {
-                image: "/productsImages/lunette6.png",
-                name: "Titre de produit",
-                description: "Description du produit",
-                price: "2000dh"
-              }
-            }),
-            _vm._v(" "),
-            _c("product-component", {
-              attrs: {
-                image: "/productsImages/lunette7.png",
-                name: "Titre de produit",
-                description: "Description du produit",
-                price: "2000dh"
-              }
-            }),
-            _vm._v(" "),
-            _c("product-component", {
-              attrs: {
-                image: "/productsImages/lunette8.png",
-                name: "Titre de produit",
-                description: "Description du produit",
-                price: "2000dh"
-              }
-            })
-          ],
+          _vm._l(_vm.womens, function(women) {
+            return _c(
+              "router-link",
+              { staticClass: "link", attrs: { to: "product/" + women.id } },
+              [
+                _c("product-component", {
+                  attrs: {
+                    image: "/" + women.image,
+                    name: women.name,
+                    description: women.description,
+                    price: women.price
+                  }
+                })
+              ],
+              1
+            )
+          }),
           1
         )
       ])
@@ -55165,39 +55245,13 @@ var render = function() {
       _c(
         "div",
         { staticClass: "marks" },
-        [
-          _c("router-link", { staticClass: "markImg", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/marksImages/mark1.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("router-link", { staticClass: "markImg", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/marksImages/mark2.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("router-link", { staticClass: "markImg", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/marksImages/mark3.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("router-link", { staticClass: "markImg", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/marksImages/mark4.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("router-link", { staticClass: "markImg", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/marksImages/mark5.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("router-link", { staticClass: "markImg", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/marksImages/mark6.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("router-link", { staticClass: "markImg", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/marksImages/mark7.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("router-link", { staticClass: "markImg", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/marksImages/mark8.png", alt: "" } })
-          ])
-        ],
+        _vm._l(_vm.marques, function(marque) {
+          return _c(
+            "router-link",
+            { staticClass: "link", attrs: { to: "product/" + marque.id } },
+            [_c("img", { attrs: { src: "/" + marque.image, alt: "" } })]
+          )
+        }),
         1
       )
     ])
@@ -55209,9 +55263,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _vm._v("and give your life a style "),
+      _vm._v("\n                    and give your life a style "),
       _c("br"),
-      _vm._v(" with our product")
+      _vm._v("\n                    with our product\n                ")
     ])
   },
   function() {
@@ -55278,25 +55332,16 @@ var render = function() {
               staticClass: "dropdown-menu",
               attrs: { "aria-labelledby": "dropdownCat" }
             },
-            [
-              _c(
+            _vm._l(_vm.categories, function(categorie) {
+              return _c(
                 "router-link",
                 {
                   staticClass: "dropdown-item link",
-                  attrs: { to: "/categorie" }
+                  attrs: { to: "product/" + categorie.id }
                 },
-                [_vm._v("Man")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass: "dropdown-item link",
-                  attrs: { to: "/categorie" }
-                },
-                [_vm._v("Women")]
+                [_vm._v(_vm._s(categorie.name))]
               )
-            ],
+            }),
             1
           ),
           _vm._v(" "),
@@ -55377,83 +55422,8 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "product" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "productInfo row" }, [
-      _c("div", { staticClass: "images col-md-12 col-lg-8 col-sm-12 row" }, [
-        _c("div", { staticClass: "subImages col-md-2 col-lg-2 col-sm-12" }, [
-          _c("img", {
-            attrs: { src: "/productsImages/lunette2.png", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            attrs: { src: "/productsImages/lunette3.png", alt: "" }
-          }),
-          _vm._v(" "),
-          _c("img", { attrs: { src: "/productsImages/lunette4.png", alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "principalImage col-md-10 col-lg-10 col-sm-12" },
-          [
-            _c("img", {
-              attrs: { src: "/productsImages/lunette1.png", alt: "" }
-            })
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(1)
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "other" }, [
-      _c("h1", [_vm._v("other product you may like")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "images" }, [
-        _c("img", { attrs: { src: "/images/store1.png", alt: "" } }),
-        _vm._v(" "),
-        _c("img", { attrs: { src: "/images/store2.png", alt: "" } }),
-        _vm._v(" "),
-        _c("img", { attrs: { src: "/images/store3.png", alt: "" } }),
-        _vm._v(" "),
-        _c("img", { attrs: { src: "/images/store4.png", alt: "" } })
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "banner" }, [
-      _c("h1", [_vm._v("NAME OF PRODUCT")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content col-md-12 col-lg-4 col-sm-12" }, [
-      _c("h1", [_vm._v("NAME OF PRODUCT")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          " is simply dummytext of the printing\n          and typesetting industry.Lorem \n          Ipsu has been the industry's"
-        )
-      ]),
-      _vm._v(" "),
-      _c("span", [_vm._v("122DH")])
-    ])
-  }
-]
-render._withStripped = true
+var render = function () {}
+var staticRenderFns = []
 
 
 
@@ -73034,6 +73004,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Categorie_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Categorie.vue */ "./resources/js/components/Categorie.vue");
 /* harmony import */ var _components_Contact_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Contact.vue */ "./resources/js/components/Contact.vue");
 /* harmony import */ var _components_Product_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Product.vue */ "./resources/js/components/Product.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -73064,6 +73036,8 @@ Vue.component('footer-component', __webpack_require__(/*! ./components/FooterCom
 
 
 
+
+axios__WEBPACK_IMPORTED_MODULE_7___default.a.request({});
 var routes = [{
   path: '/',
   component: _components_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]

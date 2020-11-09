@@ -10,8 +10,7 @@
                     CATEGORIE
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownCat">
-                    <router-link class="dropdown-item link" to="/categorie">Man</router-link>
-                    <router-link class="dropdown-item link" to="/categorie">Women</router-link>
+                    <router-link class="dropdown-item link" v-for="categorie in categories" :to="'product/'+ categorie.id ">{{categorie.name}}</router-link>
                 </div>
                 <router-link class="link" to="/about">ABOUT</router-link>
                 <router-link class="link" to="/contact">CONTACT US</router-link>
@@ -41,9 +40,22 @@
             nav.contains("show")
                 ? nav.remove("show")
                 : nav.add("show");
+            },
+            getCategorie() {
+                axios.get("/categorieList").then(response => {
+                    this.categories = response.data;
+                });
             }
+        },
+        data() {
+            return {
+                categories: {}
+            };
+        },
+        created() {
+            this.getCategorie();
         }
-    }
+  }
 </script>
 
 <style lang="scss">
