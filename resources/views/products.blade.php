@@ -14,7 +14,7 @@
                 <th>Description</th>
                 <th>Categorie</th>
                 <th>Marque</th>
-                <th>Action</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,12 +29,12 @@
                 <td>{{ $product->description  }}</td>
                 <td>{{ App\Categorie::find($product->categories_id)->name  }}</td>
                 <td><img height="100px" src="{{ asset( App\Marque::find($product->marques_id)->image) }}"></td>
-                <td>
-                    <a href="{{ url('editProduct/'.$product->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                    <form action="{{ url('productDestroy/'.$product->id) }}" method="post">
+                <td class="text-truncate">
+                   <form action="{{ url('productDestroy/'.$product->id) }}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        <a href="{{ url('editProduct/'.$product->id) }}" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </form>
                 </td>
             </tr>
@@ -51,7 +51,7 @@
                 <th>Description</th>
                 <th>Categorie</th>
                 <th>Marque</th>
-                <th>Action</th>
+                <th>Actions</th>
             </tr>
         </tfoot>
     </table>

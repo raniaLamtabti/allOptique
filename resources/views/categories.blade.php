@@ -7,7 +7,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>Modifier</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -16,7 +16,7 @@
                 <td>{{ $categorie->id  }}</td>
                 <td>{{ $categorie->name  }}</td>
                 <td>
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal3{{$categorie->id}}"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal3{{$categorie->id}}"><i class="fa fa-edit"></i></button>
                     <div class="modal fade" id="myModal3{{$categorie->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">

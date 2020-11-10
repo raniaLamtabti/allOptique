@@ -29,6 +29,7 @@
                 <img :src="'/images/boyTransparant.png'" alt="" />
             </div>
         </div>
+<<<<<<< HEAD
         <div class="products-div">
             <h1>same products</h1>
             <div class="products">
@@ -43,6 +44,30 @@
                     ></product-component>
                 </router-link>
             </div>
+=======
+      </div>
+      <div class="right">
+        <img :src="'/images/boyTransparant.png'" alt="">
+      </div>
+    </div>
+    <div class="products-div">
+      <h1>same products</h1>
+      <div class="products">
+        <router-link v-for="product in products" :key="product.id" :to="'product/'+ product.id ">
+              <product-component :image="product.image" v-bind:name="product.name" v-bind:description="product.description" v-bind:price="product.price"></product-component>
+        </router-link>
+      </div>
+    </div>
+    <div class="kids">
+      <h1>for  your  kids</h1>
+      <div class="content">
+        <div class="offer">
+          <img :src="'/images/girl.png'" alt="">
+          <div class="offer-content">
+            <p>Pour tout un tas de raisons Pour tout un raisons tout un tas de raisonsPour tout un ta raisons our tout un tas de raisonsur tout us de raisons</p>
+            <router-link to="/about" class="btn">see more</router-link>
+          </div>
+>>>>>>> dd0fedac14d3349a2a1115c4626f36a460778904
         </div>
         <div class="kids">
             <h1>for your kids</h1>

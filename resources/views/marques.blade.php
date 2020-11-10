@@ -8,7 +8,7 @@
                 <th>Id</th>
                 <th>Image</th>
                 <th>Nom</th>
-                <th>Modifier</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +18,7 @@
                 <td><img height="100px" src="{{ asset($marque->image) }}"></td>
                 <td>{{ $marque->name  }}</td>
                 <td>
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal3{{$marque->id}}"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal3{{$marque->id}}"><i class="fa fa-edit"></i></button>
                     <div class="modal fade" id="myModal3{{$marque->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -47,6 +47,8 @@
                             </div>
                         </div>
                     </div>
+
+                    
                 </td>
             </tr>
         @endforeach
@@ -56,7 +58,7 @@
                 <th>Id</th>
                 <th>Image</th>
                 <th>Nom</th>
-                <th>Modifier</th>
+                <th>Actions</th>
             </tr>
         </tfoot>
     </table>

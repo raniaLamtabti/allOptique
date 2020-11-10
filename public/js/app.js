@@ -55135,6 +55135,7 @@ var render = function() {
         _vm._l(_vm.products, function(product) {
           return _c(
             "router-link",
+<<<<<<< HEAD
             {
               key: product.id,
               staticClass: "link",
@@ -55144,6 +55145,13 @@ var render = function() {
               _c("product-component", {
                 attrs: {
                   image: "/" + product.image,
+=======
+            { key: product.id, attrs: { to: "product/" + product.id } },
+            [
+              _c("product-component", {
+                attrs: {
+                  image: product.image,
+>>>>>>> dd0fedac14d3349a2a1115c4626f36a460778904
                   name: product.name,
                   description: product.description,
                   price: product.price
@@ -73144,6 +73152,9 @@ var routes = [{
 }, {
   path: '/product/:id',
   component: _components_Product_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+}, {
+  path: '/product/:id',
+  component: _components_Contact_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes
