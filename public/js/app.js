@@ -2218,6 +2218,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -55189,7 +55190,11 @@ var render = function() {
           _vm._l(_vm.kids, function(kid) {
             return _c(
               "router-link",
-              { staticClass: "link", attrs: { to: "product/" + kid.id } },
+              {
+                key: kid.id,
+                staticClass: "link",
+                attrs: { to: "product/" + kid.id }
+              },
               [
                 _c("product-component", {
                   attrs: {
@@ -55252,7 +55257,11 @@ var render = function() {
         _vm._l(_vm.marques, function(marque) {
           return _c(
             "router-link",
-            { staticClass: "link", attrs: { to: "product/" + marque.id } },
+            {
+              key: marque.id,
+              staticClass: "link",
+              attrs: { to: "product/" + marque.id }
+            },
             [_c("img", { attrs: { src: "/" + marque.image, alt: "" } })]
           )
         }),
@@ -55385,17 +55394,23 @@ var render = function() {
             attrs: { "aria-labelledby": "dropdownLang" }
           },
           [
-            _c("router-link", { staticClass: "dropdown-item link" }, [
-              _vm._v("EN")
-            ]),
+            _c(
+              "router-link",
+              { staticClass: "dropdown-item link", attrs: { to: "#" } },
+              [_vm._v("EN")]
+            ),
             _vm._v(" "),
-            _c("router-link", { staticClass: "dropdown-item link" }, [
-              _vm._v("FR")
-            ]),
+            _c(
+              "router-link",
+              { staticClass: "dropdown-item link", attrs: { to: "#" } },
+              [_vm._v("FR")]
+            ),
             _vm._v(" "),
-            _c("router-link", { staticClass: "dropdown-item link" }, [
-              _vm._v("AR")
-            ])
+            _c(
+              "router-link",
+              { staticClass: "dropdown-item link", attrs: { to: "#" } },
+              [_vm._v("AR")]
+            )
           ],
           1
         )
@@ -73084,8 +73099,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Categorie_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Categorie.vue */ "./resources/js/components/Categorie.vue");
 /* harmony import */ var _components_Contact_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Contact.vue */ "./resources/js/components/Contact.vue");
 /* harmony import */ var _components_Product_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Product.vue */ "./resources/js/components/Product.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -73116,8 +73129,6 @@ Vue.component('footer-component', __webpack_require__(/*! ./components/FooterCom
 
 
 
-
-axios__WEBPACK_IMPORTED_MODULE_7___default.a.request({});
 var routes = [{
   path: '/',
   component: _components_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -73131,7 +73142,7 @@ var routes = [{
   path: '/contact',
   component: _components_Contact_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
-  path: '/product/{id}',
+  path: '/product/:id',
   component: _components_Product_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

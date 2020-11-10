@@ -1,4 +1,5 @@
 <template>
+
     <div class="home">
         <div class="banner">
             <div class="left">
@@ -59,7 +60,7 @@
                         >
                     </div>
                 </div>
-                <router-link class="link" v-for="kid in kids" :to="'product/'+ kid.id ">
+                <router-link class="link" v-for="kid in kids" :key="kid.id" :to="'product/'+ kid.id ">
                     <product-component
                         :image="'/' + kid.image"
                         v-bind:name="kid.name"
@@ -88,7 +89,7 @@
         <div class="marks-div">
             <h1><h1>Marques</h1></h1>
             <div class="marks">
-                <router-link class="link" v-for="marque in marques" :to="'product/'+ marque.id ">
+                <router-link class="link" v-for="marque in marques"  :key="marque.id"  :to="'product/'+ marque.id ">
                     <img :src="'/' + marque.image" alt="">
                 </router-link>
             </div>

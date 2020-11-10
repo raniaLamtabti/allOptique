@@ -20,14 +20,14 @@
                     <img :src="'/iconsLogo/translate.png'" alt="">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownLang">
-                    <router-link class="dropdown-item link">EN</router-link>
-                    <router-link class="dropdown-item link">FR</router-link>
-                    <router-link class="dropdown-item link">AR</router-link>
+                    <router-link class="dropdown-item link" to="#">EN</router-link>
+                    <router-link class="dropdown-item link" to="#">FR</router-link>
+                    <router-link class="dropdown-item link" to="#">AR</router-link>
                 </div>
             </div>
         </div>
         <div class="burgerMenu">
-            <div id="burger" v-on:click="makeRed"><img :src="'/iconsLogo/burgerMenu.png'" alt=""></div>
+            <div id="burger" @click="makeRed"><img :src="'/iconsLogo/burgerMenu.png'" alt=""></div>
         </div>
     </div>
 </template>

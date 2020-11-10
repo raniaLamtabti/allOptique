@@ -33,8 +33,7 @@ import about from './components/About.vue';
 import categorie from './components/Categorie.vue';
 import contact from './components/Contact.vue';
 import product from './components/Product.vue';
-import axios, * as others from 'axios';
-axios.request({ });
+
 
 const routes = [
     {
@@ -54,7 +53,7 @@ const routes = [
         component: contact
     },
     {
-        path: '/product/{id}',
+        path: '/product/:id',
         component: product
     }
 ];
